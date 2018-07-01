@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
-
     constructor(props) {
         super(props);
 
@@ -15,48 +14,41 @@ class DishDetail extends Component {
     componentDidMount() {
         console.log('DishDetail component componentDidMount is invoked');
     }
-
+    
     renderDish(dish) {
         if(dish != null) {
             return(
-                <Card>
-                    <CardImg top src={dish.image} alt={dish.name}></CardImg>
-                    <CardBody>
-                        <CardTitle>{dish.name}</CardTitle>
-                        <CardText>{dish.description}</CardText>
-                    </CardBody>
-                </Card>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 col-md-5 m-1">
+                        <Card>
+                            <CardImg top src={dish.image} alt={dish.name}></CardImg>
+                            <CardBody>
+                                <CardTitle>{dish.name}</CardTitle>
+                                <CardText>{dish.description}</CardText>
+                            </CardBody>
+                        </Card>
+                        </div>
+                        <div className="col-12 col-md-5 m-1">
+                        </div>
+                    </div>
+                </div>                
             );
         } else {
-            return(
-                <div></div>
-            );
+            return(<div></div>);
         }
     }
 
     render() {
-        const DishDetail = <div></div>;
-        var dishDetailReturned = <div></div>;
-        if (this.props.dish != null) {
-            dishDetailReturned = 
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-5 m-1">
-                        <Card></Card>
-                    </div>
-                    <div class="col-12 col-md-5 m-1">
-                        {}
-                    </div>
-                </div>
-            </div>
+        if (this.props.dish === null) {
+            <div></div>
         }
 
         return (
-            dishDetailReturned
+            this.renderDish(this.props.dish)
         );
 
-
-        console.log('menu component render is invoked');
+        console.log('DishDetail component render is invoked');
 
         return (
             <div className="container">
@@ -66,7 +58,6 @@ class DishDetail extends Component {
             </div>
         );
     }
-
 }
 
 export default DishDetail;

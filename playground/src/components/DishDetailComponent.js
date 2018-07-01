@@ -15,8 +15,27 @@ class DishDetail extends Component {
         console.log('DishDetail component componentDidMount is invoked');
     }
     
+    renderComments(comments) {
+        return(
+            <div>
+                <h4>Comments</h4>
+                <ul className="list-unstyled">
+                    {
+                        comments.map((comment, i) => (
+                            <li key={i}>
+                                <div>{comment.comment}</div>
+                                <blockquote>--{comment.author}, {comment.date}</blockquote>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        )
+    }
+
     renderDish(dish) {
         if(dish != null) {
+            var renderedComments = this.renderComments(dish.comments);
             return(
                 <div className="container">
                     <div className="row">
@@ -30,6 +49,7 @@ class DishDetail extends Component {
                         </Card>
                         </div>
                         <div className="col-12 col-md-5 m-1">
+                            {renderedComments}
                         </div>
                     </div>
                 </div>                

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
     constructor(props) {
@@ -16,6 +16,9 @@ class DishDetail extends Component {
     }
     
     renderComments(comments) {
+        if (this.props.dish === null) {
+            return (<div></div>)
+        }
         return(
             <div>
                 <h4>Comments</h4>
@@ -60,22 +63,8 @@ class DishDetail extends Component {
     }
 
     render() {
-        if (this.props.dish === null) {
-            <div></div>
-        }
-
         return (
             this.renderDish(this.props.dish)
-        );
-
-        console.log('DishDetail component render is invoked');
-
-        return (
-            <div className="container">
-                <div className="row">
-                    { DishDetail }
-                </div>
-            </div>
         );
     }
 }

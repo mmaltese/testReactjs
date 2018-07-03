@@ -20,8 +20,8 @@ class Menu extends Component {
                 <div key={dish.id} className="col-12 col-md-5 m-1">
                     <Card onClick={() => this.props.onClick(dish.id)}>
                         <CardImg width="100%" src={dish.image} alt={dish.name}></CardImg>
-                        <CardImgOverlay body className="ml-5">
-                            <CardTitle heading>{dish.name}</CardTitle>
+                        <CardImgOverlay body="true" className="ml-5">
+                            <CardTitle heading="true">{dish.name}</CardTitle>
                             <p>{dish.description}</p>
                         </CardImgOverlay>
                     </Card>

@@ -7,9 +7,8 @@ import { Link } from 'react-router-dom';
             <Card>
                 <Link to={`/menu/${dish.id}`}>
                     <CardImg width="100%" src={dish.image} alt={dish.name}></CardImg>
-                    <CardImgOverlay body="true" className="ml-5">
-                        <CardTitle heading="true">{dish.name}</CardTitle>
-                        <p>{dish.description}</p>
+                    <CardImgOverlay>
+                        <CardTitle>{dish.name}</CardTitle>
                     </CardImgOverlay>
                 </Link>
             </Card>

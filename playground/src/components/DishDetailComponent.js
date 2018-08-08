@@ -19,6 +19,13 @@ import { Link } from 'react-router-dom';
                             ))
                         }
                     </ul>
+
+                    <CommentForm>
+                        <Button color="secondary">
+                            <i className="fa fa-pencil"></i> Submit comment
+                        </Button>
+                    </CommentForm>
+                
                 </div>
             )
         } else {
